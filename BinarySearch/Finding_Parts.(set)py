@@ -1,0 +1,10 @@
+n = int(input())
+ln = set(map(int,input().split()))
+m = int(input())
+lm = list(map(int,input().split()))
+
+for i in range(m):
+    if lm[i] in ln:
+        print("yes", end = ' ')
+    else:
+        print("none", end = ' ')
