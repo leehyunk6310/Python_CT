@@ -1,28 +1,12 @@
-from collections import deque
+arr = [5,7,9,0,3,1,6,2,4,8]
 
-def bfs(graph, start, visited):
-    queue = deque([start])
-    visited[start] = True
-    while queue:
-        v = queue.popleft()
-        print(v, end= ' ')
-        for i in graph[v]:
-            if not visited[i]:
-                queue.append(i)
-                visited[i] = True
-                
-graph = [
-    [],
-    [2,3,8],    #1
-    [1, 7],     #2
-    [1,4,5],
-    [3,5],
-    [3,4],
-    [7],        #4
-    [2,6,8],    #3
-    [1,7]
-]
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[0]
+    tail = arr[1:]
+    left_side = [x for x in tail if x <= pivot]
+    right_side = [x for x in tail if x > pivot]
+    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
 
-visited = [False] * 9
-
-bfs(graph, 1 , visited)
+print(quick_sort(arr))
